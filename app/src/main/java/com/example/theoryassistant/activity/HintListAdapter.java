@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
 import com.example.theoryassistant.R;
 
 import java.util.ArrayList;
@@ -43,8 +45,8 @@ public class HintListAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView mobile_name, mobile_price, details_mobile;
-        LinearLayout product_list;
+        TextView mobile_name, details_mobile;
+        CardView product_list;
     }
 
     @Override
@@ -57,7 +59,6 @@ public class HintListAdapter extends BaseAdapter {
             row = layoutInflater.inflate(layout, null);
 
             holder.mobile_name = row.findViewById(R.id.name_mobile);
-            holder.mobile_price = row.findViewById(R.id.price_mobile);
             holder.details_mobile = row.findViewById(R.id.details);
             holder.product_list = row.findViewById(R.id.product_list);
 
