@@ -42,7 +42,7 @@ public class HintClickedAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        TextView mobile_name, mobile_price, details_mobile;
+        TextView textViewAnswer;
     }
 
     @Override
@@ -54,13 +54,13 @@ public class HintClickedAdapter extends BaseAdapter {
         if (row == null) {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = layoutInflater.inflate(layout2, null);
-            holder.details_mobile = (TextView) row.findViewById(R.id.buy_details);
+            holder.textViewAnswer = (TextView) row.findViewById(R.id.textView_answer);
             row.setTag(holder);
         } else {
             holder = (ViewHolder) row.getTag();
         }
         final Hint hint_ = product_list_clicked.get(position);
-        holder.details_mobile.setText(hint_.getAnswer());
+        holder.textViewAnswer.setText(hint_.getAnswer());
         return row;
     }
 }

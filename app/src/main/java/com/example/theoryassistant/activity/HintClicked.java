@@ -15,8 +15,8 @@ import com.example.theoryassistant.sqlite.SQLiteDataBase;
 
 public class HintClicked extends AppCompatActivity {
 
-    TextView  buy_details;
-    String  det;
+    TextView textViewAnswer;
+    String ans;
     SQLiteOpenHelper openHelper;
     SQLiteDatabase db;
 
@@ -27,20 +27,20 @@ public class HintClicked extends AppCompatActivity {
         openHelper = new SQLiteDataBase(this);
 
         Bundle extras = getIntent().getExtras();
-        det = extras.getString("details");
+        ans = extras.getString("answer");
 
-        buy_details = findViewById(R.id.buy_details);
-        buy_details.setMovementMethod(new ScrollingMovementMethod());
+        textViewAnswer = findViewById(R.id.textView_answer);
+        textViewAnswer.setMovementMethod(new ScrollingMovementMethod());
 
         //Setting Data to its Ids
-        buy_details.setText(det);
+        textViewAnswer.setText(ans);
     }
 
-    public void insertData(String cart_name, String cart_price, String cart_details) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(SQLiteDataBase.QUESTION, cart_name);
-        contentValues.put(SQLiteDataBase.ANSWER, cart_details);
-        long id = db.insert(SQLiteDataBase.TABLE_NAME2, null, contentValues);
-        Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
-    }
+//    public void insertData(String cart_name, String cart_details) {
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(SQLiteDataBase.QUESTION, cart_name);
+//        contentValues.put(SQLiteDataBase.ANSWER, cart_details);
+//        long id = db.insert(SQLiteDataBase.TABLE_NAME2, null, contentValues);
+//        Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
+//    }
 }

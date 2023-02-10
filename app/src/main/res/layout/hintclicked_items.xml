@@ -25,10 +25,10 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/buy_details"
+                android:id="@+id/textView_answer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description"
+                android:hint="@string/answer"
                 android:scrollbars="vertical"
                 android:textAlignment="textStart"
                 android:textColor="#FFF" />
