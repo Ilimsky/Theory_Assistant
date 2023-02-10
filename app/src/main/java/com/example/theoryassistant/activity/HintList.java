@@ -51,10 +51,9 @@ public class HintList extends AddHint {
         cursor = AddHint.sqLitePhoneDetails.getData("SELECT * FROM PHONE");
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String price = cursor.getString(2);
-            String details = cursor.getString(3);
-            list.add(new Hint(id, name, price, details));
+            String question = cursor.getString(1);
+            String answer = cursor.getString(2);
+            list.add(new Hint(id, question, answer));
         }
 
         adapter.notifyDataSetChanged();
@@ -130,11 +129,9 @@ public class HintList extends AddHint {
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            String name = cursor.getString(1);
-            String price = cursor.getString(2);
-            String details = cursor.getString(3);
-
-            list.add(new Hint(id, name, price, details));
+            String question = cursor.getString(1);
+            String answer = cursor.getString(2);
+            list.add(new Hint(id, question, answer));
         }
         adapter.notifyDataSetChanged();
     }
@@ -145,7 +142,6 @@ public class HintList extends AddHint {
         dialog.setTitle("Update");
 
         final EditText edtName = (EditText) dialog.findViewById(R.id.edtName);
-        final EditText edtPrice = (EditText) dialog.findViewById(R.id.edtPrice);
         final EditText edtdetais = (EditText) dialog.findViewById(R.id.editdetails);
         Button btnUpdate = (Button) dialog.findViewById(R.id.btnUpdate);
 
@@ -162,7 +158,6 @@ public class HintList extends AddHint {
                 try {
                     AddHint.sqLitePhoneDetails.updateData(
                             edtName.getText().toString().trim(),
-                            edtPrice.getText().toString().trim(),
                             edtdetais.getText().toString().trim(),
                             position
                     );

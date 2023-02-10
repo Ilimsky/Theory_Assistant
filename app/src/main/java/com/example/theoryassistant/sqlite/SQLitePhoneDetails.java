@@ -17,14 +17,13 @@ public class SQLitePhoneDetails extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
-    public void insertData(String name, String price, String details) {
+    public void insertData(String question, String answer) {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = " INSERT INTO PHONE VALUES (NULL, ?, ?, ?)";
+        String sql = " INSERT INTO PHONE VALUES (NULL, ?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
-        statement.bindString(1, name);
-        statement.bindString(2, price);
-        statement.bindString(3, details);
+        statement.bindString(1, question);
+        statement.bindString(2, answer);
         statement.executeInsert();
     }
 
@@ -39,16 +38,15 @@ public class SQLitePhoneDetails extends SQLiteOpenHelper {
         return dataCount;
     }
 
-    public void updateData(String name, String price, String details, int id) {
+    public void updateData(String question, String answer, int id) {
         SQLiteDatabase database = getWritableDatabase();
 
-        String sql = "UPDATE PHONE SET name = ?, price = ?, details = ? WHERE id = ?";
+        String sql = "UPDATE PHONE SET question = ?, answer = ? WHERE id = ?";
         SQLiteStatement statement = database.compileStatement(sql);
 
-        statement.bindString(0, name);
-        statement.bindString(1, price);
-        statement.bindString(2, details);
-        statement.bindDouble(4, (double) id);
+        statement.bindString(1, question);
+        statement.bindString(2, answer);
+        statement.bindDouble(3, (double) id);
 
         statement.execute();
         database.close();

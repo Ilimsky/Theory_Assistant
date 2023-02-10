@@ -16,9 +16,8 @@ public class SQLiteDataBase extends SQLiteOpenHelper {
     public static final String COL_5 = "password";
 
     public static final String TABLE_NAME2 = "note";
-    public static final String NAME = "name";
-    public static final String PRICE = "price";
-    public static final String DETAILS = "details";
+    public static final String QUESTION = "question";
+    public static final String ANSWER = "answer";
 
 
     String CREATE_PROJECT = "CREATE TABLE " + TABLE_NAME +
@@ -29,9 +28,8 @@ public class SQLiteDataBase extends SQLiteOpenHelper {
             COL_5 + " TEXT" + ")";
 
     String CREATE_CART = "CREATE TABLE " + TABLE_NAME2 +
-            " (" + NAME + " TEXT," +
-            PRICE + " TEXT," +
-            DETAILS + " TEXT)";
+            " (" + QUESTION + " TEXT," +
+            ANSWER + " TEXT)";
 
     public SQLiteDataBase(Context context) {
         super(context, DATABASE_NAME, null, 1);

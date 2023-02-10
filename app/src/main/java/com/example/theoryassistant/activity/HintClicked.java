@@ -38,9 +38,8 @@ public class HintClicked extends AppCompatActivity {
 
     public void insertData(String cart_name, String cart_price, String cart_details) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(SQLiteDataBase.NAME, cart_name);
-        contentValues.put(SQLiteDataBase.PRICE, cart_price);
-        contentValues.put(SQLiteDataBase.DETAILS, cart_details);
+        contentValues.put(SQLiteDataBase.QUESTION, cart_name);
+        contentValues.put(SQLiteDataBase.ANSWER, cart_details);
         long id = db.insert(SQLiteDataBase.TABLE_NAME2, null, contentValues);
         Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
     }

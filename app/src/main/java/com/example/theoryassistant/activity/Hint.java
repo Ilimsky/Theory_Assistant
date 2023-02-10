@@ -2,15 +2,13 @@ package com.example.theoryassistant.activity;
 
 public class Hint {
     public int id;
-    public String name;
-    public String price;
-    public String details;
+    public String question;
+    public String answer;
 
-    public Hint(int id, String name, String price, String details) {
+    public Hint(int id, String question, String answer) {
         this.id = id;
-        this.name = name;
-        this.price = price;
-        this.details = details;
+        this.question = question;
+        this.answer = answer;
     }
 
     public int getId() {
@@ -21,28 +19,19 @@ public class Hint {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public String getPrice() {
-        return price;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
 }

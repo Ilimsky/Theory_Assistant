@@ -66,20 +66,17 @@ public class HintListAdapter extends BaseAdapter {
             holder = (ViewHolder) row.getTag();
         }
         final Hint hint_ = product_list.get(position);
-        holder.mobile_name.setText(hint_.getName());
-        holder.mobile_price.setText(hint_.getPrice());
-        holder.details_mobile.setText(hint_.getDetails());
+        holder.mobile_name.setText(hint_.getQuestion());
+        holder.details_mobile.setText(hint_.getAnswer());
         holder.product_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name_name = product_list.get(position).name;
-                String price_price = product_list.get(position).price;
-                String details_details = product_list.get(position).details;
+                String name_name = product_list.get(position).question;
+                String details_details = product_list.get(position).answer;
 
                 Intent intent = new Intent(activity, HintClicked.class);
-                intent.putExtra("name", name_name);
-                intent.putExtra("price", price_price);
-                intent.putExtra("details", details_details);
+                intent.putExtra("question", name_name);
+                intent.putExtra("answer", details_details);
                 activity.startActivity(intent);
             }
         });

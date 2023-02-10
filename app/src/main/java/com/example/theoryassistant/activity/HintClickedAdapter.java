@@ -60,7 +60,7 @@ public class HintClickedAdapter extends BaseAdapter {
             holder = (ViewHolder) row.getTag();
         }
         final Hint hint_ = product_list_clicked.get(position);
-        holder.details_mobile.setText(hint_.getDetails());
+        holder.details_mobile.setText(hint_.getAnswer());
         return row;
     }
 }
