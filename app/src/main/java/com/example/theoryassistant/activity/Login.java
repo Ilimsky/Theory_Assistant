@@ -49,8 +49,8 @@ public class Login extends AppCompatActivity {
                 String pass = password.getText().toString();
 
                 cursor = db.rawQuery("SELECT * FROM " + SQLiteDataBase.TABLE_NAME +
-                        " WHERE " + SQLiteDataBase.COL_3 + " = ? " +
-                        "AND " + SQLiteDataBase.COL_5 + " = ? ", new String[]{phone, pass});
+                        " WHERE " + SQLiteDataBase.COL_1 + " = ? " +
+                        "AND " + SQLiteDataBase.COL_2 + " = ? ", new String[]{phone, pass});
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
                         cursor.moveToNext();

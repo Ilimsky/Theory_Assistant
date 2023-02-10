@@ -42,7 +42,7 @@ public class AdminSupport extends AppCompatActivity
         db = openHelper.getReadableDatabase();
 
         cursor = db.rawQuery("SELECT * FROM " + SQLiteDataBase.TABLE_NAME + " WHERE "
-                + SQLiteDataBase.COL_3 + " = ? ", new String[]{parameter});
+                + SQLiteDataBase.COL_1 + " = ? ", new String[]{parameter});
 
         cursor.moveToLast();
         name = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_1));
@@ -105,7 +105,7 @@ public class AdminSupport extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.myaccount) {
             Intent intent = new Intent(AdminSupport.this, MyAccount.class);
-            intent.putExtra("phone", cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_3)));
+            intent.putExtra("phone", cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_1)));
             startActivity(intent);
         } else if (id == R.id.addproducts) {
             Intent intent = new Intent(AdminSupport.this, AddHint.class);

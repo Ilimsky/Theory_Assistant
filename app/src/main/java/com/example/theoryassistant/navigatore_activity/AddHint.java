@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,27 +37,21 @@ public class AddHint extends AppCompatActivity {
                 "answer VARCHAR);");
 
 
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sqLitePhoneDetails
-                        .insertData(editTextQuestion.getText().toString().trim(),
-                                editTextAnswer.getText().toString().trim());
+        btnadd.setOnClickListener(view -> {
+            sqLitePhoneDetails
+                    .insertData(editTextQuestion.getText().toString().trim(),
+                            editTextAnswer.getText().toString().trim());
 
-                Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
 
-                editTextQuestion.setText("");
-                editTextAnswer.setText("");
-            }
+            editTextQuestion.setText("");
+            editTextAnswer.setText("");
         });
 
-        btncancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AddHint.this, AdminSupport.class);
-                startActivity(intent);
-                finish();
-            }
+        btncancel.setOnClickListener(view -> {
+            Intent intent = new Intent(AddHint.this, AdminSupport.class);
+            startActivity(intent);
+            finish();
         });
     }
 

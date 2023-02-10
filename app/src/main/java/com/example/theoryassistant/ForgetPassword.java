@@ -47,7 +47,7 @@ public class ForgetPassword extends AppCompatActivity {
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
                         cursor.moveToNext();
-                        pass = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_5));
+                        pass = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_2));
                         getpasshere.setText(pass);
                     }else {
                         Toast.makeText(ForgetPassword.this, "Your Details Are Wrong", Toast.LENGTH_LONG).show();

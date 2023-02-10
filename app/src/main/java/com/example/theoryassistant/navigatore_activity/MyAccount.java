@@ -15,10 +15,10 @@ import com.example.theoryassistant.sqlite.SQLiteDataBase;
 public class MyAccount extends RegistrationAdmin {
 
     Button back;
-    TextView acname, acemail, acmobile, acaddress, acpassword;
+    TextView acmobile, acpassword;
     String parameter2;
     private Cursor cursor;
-    String names, emails, mobiles, addresss, passwords;
+    String mobiles, passwords;
     public SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
 
@@ -27,10 +27,7 @@ public class MyAccount extends RegistrationAdmin {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
 
-        acname = findViewById(R.id.acname);
-        acemail = findViewById(R.id.acemail);
         acmobile = findViewById(R.id.acmobile);
-        acaddress = findViewById(R.id.acaddress);
         acpassword = findViewById(R.id.acpassword);
         back = findViewById(R.id.back);
         openHelper = new SQLiteDataBase(this);
@@ -39,18 +36,12 @@ public class MyAccount extends RegistrationAdmin {
         parameter2 = getIntent().getStringExtra("phone");
 
         cursor = db.rawQuery("SELECT * FROM " + SQLiteDataBase.TABLE_NAME + " WHERE "
-                + SQLiteDataBase.COL_3 + " = ? ", new String[]{parameter2});
+                + SQLiteDataBase.COL_1 + " = ? ", new String[]{parameter2});
 
         cursor.moveToLast();
-        names = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_1));
-        acname.setText(names);
-        emails = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_2));
-        acemail.setText(emails);
-        mobiles = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_3));
+        mobiles = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_1));
         acmobile.setText(mobiles);
-        addresss = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_4));
-        acaddress.setText(addresss);
-        passwords = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_5));
+        passwords = cursor.getString(cursor.getColumnIndex(SQLiteDataBase.COL_2));
         acpassword.setText(passwords);
 
         back.setOnClickListener(new View.OnClickListener() {
